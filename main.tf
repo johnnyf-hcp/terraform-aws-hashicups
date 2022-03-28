@@ -11,10 +11,6 @@ provider "aws" {
   region  = var.region
 }
 
-data "http" "myip" {
-  url = "http://checkip.amazonaws.com"
-}
-
 # Latest Amazon LINUX 2 AMI
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
@@ -45,21 +41,21 @@ resource "aws_security_group" "hashicups-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
