@@ -38,10 +38,10 @@ resource "aws_security_group" "hashicups-sg" {
   name = "${var.prefix}-${var.environment}-hashicups-sg"
 
   ingress {
-    from_port   = 22
+    from_port   = 8222
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["116.15.12.143/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
