@@ -6,7 +6,3 @@ output "app_url" {
 output "app_ip" {
   value = "http://${aws_instance.hashicups-docker-server.public_ip}"
 }
-
-output "myip" {
-  value = chomp(data.http.myip.body)
-}
