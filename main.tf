@@ -85,6 +85,6 @@ resource "aws_instance" "hashicups-docker-server" {
     Name = "${var.prefix}-${var.environment}-hashicups-app"
     Owner = "${var.prefix}"
     Purpose = "Field Demo"
-#    Environment = "${var.environment}"
+    Environment = "${var.environment}"
   }
 }
