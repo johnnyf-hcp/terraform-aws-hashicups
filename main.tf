@@ -84,7 +84,7 @@ resource "aws_instance" "hashicups-docker-server" {
   tags = {
     Name = "${var.prefix}-${var.environment}-hashicups-app"
     Owner = "${var.prefix}"
-    Purpose = "Field Dem"
+    Purpose = "Field Demo - Johnny Fang"
     Environment = "${var.environment}"
   }
 }
